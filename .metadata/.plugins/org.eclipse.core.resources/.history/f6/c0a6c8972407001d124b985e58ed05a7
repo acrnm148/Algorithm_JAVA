@@ -1,0 +1,25 @@
+package basic;
+
+public class BASIC_Array_Circular {
+
+	public static void main(String[] args) {
+		char[] input = {'A', 'B', 'C', 'D', 'E', 'F', 'G'};
+		int n = input.length;
+		
+		//normal
+//		{
+//			for (int i = 0; i < n; i++) {
+//				System.out.printf("%2s", input[i]);
+//			}
+//		}
+		
+		//normal
+		{
+			for (int i = 0; i < n; i++) {
+				System.out.printf("%2s", input[i]);
+			}
+		}
+
+	}
+
+}

@@ -1,0 +1,24 @@
+package com.ssafy.ws.step3;
+
+import java.util.Scanner;
+
+public class Solution {
+
+	public static void main(String[] args) {
+		int N;
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt();
+		int[][] arr = new int[N][N];
+		int[] dir_y = {1, 1, 0, -1, -1, -1, 0, 1};
+		int[] dir_x = {0, 1, 1, 1, 0, -1, -1, -1};
+		//ют╥б
+		for (int y = 0; y < N; y++) {
+			for (int x= 0; x < N; x++) {
+				arr[y][x] = sc.nextInt();
+			}
+		}
+		//е╫╩Ж
+		
+	}
+
+}

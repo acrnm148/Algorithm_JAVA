@@ -1,0 +1,22 @@
+package basic;
+
+public class BASIC_Array {
+	public static void main(String[] args) {
+		//빈도수 출력
+		{
+			int [] alphaCnt = new int[26]; // index 0 : a에 대한 빈도수, 1: b에 대한 빈도수 //default : 0
+			String str = "abbcccddddeeeeeffffggghhiabbcccddddeeeeeffffggghhi";
+			
+			int strLength = str.length();
+			for (int i = 0; i < strLength; i++) { //문자열 순회 (처음 -> 끝)
+				alphaCnt[str.charAt(i) - 'a']++;
+			}
+			
+			//출력
+			for(int i = 0; i < 26; i++) {
+				System.out.println(); // a: 3
+			}
+		}
+		
+	}
+}

@@ -1,0 +1,16 @@
+package com.ssafy.ws.step3;
+
+import java.util.Scanner;
+
+public class Solution {
+
+	public static void main(String[] args) {
+		int N;
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt();
+		int[][] arr = new int[N][N];
+		int[] dir_x = {};
+		int[] dir_x = {};
+	}
+
+}

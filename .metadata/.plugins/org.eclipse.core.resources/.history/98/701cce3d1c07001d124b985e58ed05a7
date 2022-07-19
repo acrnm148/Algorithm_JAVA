@@ -1,0 +1,7 @@
+package basic;
+
+public class BASIC_Array {
+	public static void main(String[] args) {
+		
+	}
+}
