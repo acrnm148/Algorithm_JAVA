@@ -1,9 +1,0 @@
-package basic;
-
-public class BASIC_Delta {
-	public static void main(String[] args) {
-		int[][] input = {
-				
-		};
-	}
-}
