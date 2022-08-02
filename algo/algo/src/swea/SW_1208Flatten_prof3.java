@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-// ArrayList »ç¿ë <= ¼Óµµ °³¼± X, ¿ÀÈ÷·Á ´õ °É¸°´Ù.
-// BufferedReader »ç¿ë
+// ArrayList ì‚¬ìš© <= ì†ë„ ê°œì„  X, ì˜¤íˆë ¤ ë” ê±¸ë¦°ë‹¤.
+// BufferedReader ì‚¬ìš©
 public class SW_1208Flatten_prof3 {
 	
 	static ArrayList<Integer> floor;
@@ -17,11 +17,11 @@ public class SW_1208Flatten_prof3 {
 		//Scanner sc = new Scanner(System.in);
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		long start = System.nanoTime(); //½ÇÇà ½Ã°£ ÃøÁ¤
+		long start = System.nanoTime(); //ì‹¤í–‰ ì‹œê°„ ì¸¡ì •
 		
 		for (int t = 1; t <= 10; t++) {
 			dump = Integer.parseInt(br.readLine());
-			floor = new ArrayList<>(); //ArrayListµµ Å¬·¡½ºÀÌ¹Ç·Î »ı¼ºÀÚ·Î ¸¸µç´Ù
+			floor = new ArrayList<>(); //ArrayListë„ í´ë˜ìŠ¤ì´ë¯€ë¡œ ìƒì„±ìë¡œ ë§Œë“ ë‹¤
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			for (int i = 0; i < 100; i++) {
 				floor.add(Integer.parseInt(st.nextToken()));
@@ -31,23 +31,23 @@ public class SW_1208Flatten_prof3 {
 			maxIdx = 0;
 			
 			for (int i = 0; i < dump; i++) {
-				//ÃÖ´ë, ÃÖ¼Ò ÀÎµ¦½º
+				//ìµœëŒ€, ìµœì†Œ ì¸ë±ìŠ¤
 				reset();
-				//ÃÖ´ë, ÃÖ¼Ò Â÷ÀÌ ºñ±³
+				//ìµœëŒ€, ìµœì†Œ ì°¨ì´ ë¹„êµ
 				int gap = floor.get(maxIdx) - floor.get(minIdx);
 				if (gap == 0 || gap == 1) break;
-				//ÆòÅºÈ­ÀÛ¾÷
+				//í‰íƒ„í™”ì‘ì—…
 				floor.set(maxIdx, floor.get(maxIdx) - 1);
 				floor.set(minIdx, floor.get(minIdx)+1);
 			}
 			
-			reset(); //ÃÖÁ¾ÀûÀÎ min, maxÀÇ index °è»ê
+			reset(); //ìµœì¢…ì ì¸ min, maxì˜ index ê³„ì‚°
 			int result = floor.get(maxIdx) - floor.get(minIdx);
 			
 			System.out.println("#" + t + " " + result);
 		}
 		
-		long end = System.nanoTime(); //½ÇÇà ½Ã°£ ÃøÁ¤ (nanosecond : 10¾ïºĞÀÇ 1ÃÊ)
+		long end = System.nanoTime(); //ì‹¤í–‰ ì‹œê°„ ì¸¡ì • (nanosecond : 10ì–µë¶„ì˜ 1ì´ˆ)
 		System.out.println("duration : " + (end-start));
 	}
 	

@@ -5,8 +5,8 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-// Array»ç¿ë
-// BufferedReader »ç¿ë
+// Arrayì‚¬ìš©
+// BufferedReader ì‚¬ìš©
 public class SW_1208Flatten_prof {
 	
 	static int[] floor;
@@ -16,7 +16,7 @@ public class SW_1208Flatten_prof {
 		//Scanner sc = new Scanner(System.in);
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		long start = System.nanoTime(); //½ÇÇà ½Ã°£ ÃøÁ¤
+		long start = System.nanoTime(); //ì‹¤í–‰ ì‹œê°„ ì¸¡ì •
 		
 		for (int t = 1; t <= 10; t++) {
 			dump = Integer.parseInt(br.readLine());
@@ -30,23 +30,23 @@ public class SW_1208Flatten_prof {
 			maxIdx = 0;
 			
 			for (int i = 0; i < dump; i++) {
-				//ÃÖ´ë, ÃÖ¼Ò ÀÎµ¦½º
+				//ìµœëŒ€, ìµœì†Œ ì¸ë±ìŠ¤
 				reset();
-				//ÃÖ´ë, ÃÖ¼Ò Â÷ÀÌ ºñ±³
+				//ìµœëŒ€, ìµœì†Œ ì°¨ì´ ë¹„êµ
 				int gap = floor[maxIdx] - floor[minIdx];
 				if (gap == 0 || gap == 1) break;
-				//ÆòÅºÈ­ÀÛ¾÷
+				//í‰íƒ„í™”ìž‘ì—…
 				floor[maxIdx]--;
 				floor[minIdx]++;
 			}
 			
-			reset(); //ÃÖÁ¾ÀûÀÎ min, maxÀÇ index °è»ê
+			reset(); //ìµœì¢…ì ì¸ min, maxì˜ index ê³„ì‚°
 			int result = floor[maxIdx] - floor[minIdx];
 			
 			System.out.println("#" + t + " " + result);
 		}
 		
-		long end = System.nanoTime(); //½ÇÇà ½Ã°£ ÃøÁ¤ (nanosecond : 10¾ïºÐÀÇ 1ÃÊ)
+		long end = System.nanoTime(); //ì‹¤í–‰ ì‹œê°„ ì¸¡ì • (nanosecond : 10ì–µë¶„ì˜ 1ì´ˆ)
 		System.out.println("duration : " + (end-start));
 	}
 	

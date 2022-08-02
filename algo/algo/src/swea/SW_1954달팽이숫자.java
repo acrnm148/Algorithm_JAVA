@@ -1,9 +1,9 @@
-package algo_hw;
+package swea;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class SW_1954´ŞÆØÀÌ¼ıÀÚ {
+public class SW_1954ë‹¬íŒ½ì´ìˆ«ì {
 	
 	static int[] dir_y = {0, 1, 0, -1};
 	static int[] dir_x = {1, 0, -1, 0};

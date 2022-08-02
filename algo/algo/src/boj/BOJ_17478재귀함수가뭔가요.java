@@ -3,13 +3,13 @@ package boj;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class BOJ_17478Àç±ÍÇÔ¼ö°¡¹º°¡¿ä {
+public class BOJ_17478ì¬ê·€í•¨ìˆ˜ê°€ë­”ê°€ìš” {
 
 	public static void main(String[] args) throws Exception{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
 		
-		System.out.println("¾î´À ÇÑ ÄÄÇ»ÅÍ°øÇĞ°ú ÇĞ»ıÀÌ À¯¸íÇÑ ±³¼ö´ÔÀ» Ã£¾Æ°¡ ¹°¾ú´Ù.");
+		System.out.println("ì–´ëŠ í•œ ì»´í“¨í„°ê³µí•™ê³¼ í•™ìƒì´ ìœ ëª…í•œ êµìˆ˜ë‹˜ì„ ì°¾ì•„ê°€ ë¬¼ì—ˆë‹¤.");
 		recursive(N);
 	}
 	
@@ -20,31 +20,31 @@ public class BOJ_17478Àç±ÍÇÔ¼ö°¡¹º°¡¿ä {
 		for (int i = 1; i <= cnt; i++) str += "____";
 		
 		System.out.print(str);
-		System.out.println("\"Àç±ÍÇÔ¼ö°¡ ¹º°¡¿ä?\"");
+		System.out.println("\"ì¬ê·€í•¨ìˆ˜ê°€ ë­”ê°€ìš”?\"");
 		
-		//1. ±âÀúÁ¶°Ç
+		//1. ê¸°ì €ì¡°ê±´
 		if (N == 0) {
 			System.out.print(str);
-			System.out.println("\"Àç±ÍÇÔ¼ö´Â ÀÚ±â ÀÚ½ÅÀ» È£ÃâÇÏ´Â ÇÔ¼ö¶ó³×\"");
+			System.out.println("\"ì¬ê·€í•¨ìˆ˜ëŠ” ìê¸° ìì‹ ì„ í˜¸ì¶œí•˜ëŠ” í•¨ìˆ˜ë¼ë„¤\"");
 			System.out.print(str);
-			System.out.println("¶ó°í ´äº¯ÇÏ¿´Áö.");
+			System.out.println("ë¼ê³  ë‹µë³€í•˜ì˜€ì§€.");
 			return;
 		}
 		
-		//2. ÇÏ°í½ÍÀº ÀÏ
+		//2. í•˜ê³ ì‹¶ì€ ì¼
 		System.out.print(str);
-		System.out.println("\"Àß µé¾îº¸°Ô. ¿¾³¯¿¾³¯ ÇÑ »ê ²À´ë±â¿¡ ÀÌ¼¼»ó ¸ğµç Áö½ÄÀ» Åë´ŞÇÑ ¼±ÀÎÀÌ ÀÖ¾ú¾î.");
+		System.out.println("\"ì˜ ë“¤ì–´ë³´ê²Œ. ì˜›ë‚ ì˜›ë‚  í•œ ì‚° ê¼­ëŒ€ê¸°ì— ì´ì„¸ìƒ ëª¨ë“  ì§€ì‹ì„ í†µë‹¬í•œ ì„ ì¸ì´ ìˆì—ˆì–´.");
 		System.out.print(str);
-		System.out.println("¸¶À» »ç¶÷µéÀº ¸ğµÎ ±× ¼±ÀÎ¿¡°Ô ¼ö¸¹Àº Áú¹®À» Çß°í, ¸ğµÎ ÁöÇı·Ó°Ô ´ë´äÇØ ÁÖ¾úÁö.");
+		System.out.println("ë§ˆì„ ì‚¬ëŒë“¤ì€ ëª¨ë‘ ê·¸ ì„ ì¸ì—ê²Œ ìˆ˜ë§ì€ ì§ˆë¬¸ì„ í–ˆê³ , ëª¨ë‘ ì§€í˜œë¡­ê²Œ ëŒ€ë‹µí•´ ì£¼ì—ˆì§€.");
 		System.out.print(str);
-		System.out.println("±×ÀÇ ´äÀº ´ëºÎºĞ ¿Ç¾Ò´Ù°í ÇÏ³×. ±×·±µ¥ ¾î´À ³¯, ±× ¼±ÀÎ¿¡°Ô ÇÑ ¼±ºñ°¡ Ã£¾Æ¿Í¼­ ¹°¾ú¾î.\"");
+		System.out.println("ê·¸ì˜ ë‹µì€ ëŒ€ë¶€ë¶„ ì˜³ì•˜ë‹¤ê³  í•˜ë„¤. ê·¸ëŸ°ë° ì–´ëŠ ë‚ , ê·¸ ì„ ì¸ì—ê²Œ í•œ ì„ ë¹„ê°€ ì°¾ì•„ì™€ì„œ ë¬¼ì—ˆì–´.\"");
 		
-		//3. Àç±ÍÇÔ¼ö
+		//3. ì¬ê·€í•¨ìˆ˜
 		cnt++;
 		recursive(N - 1);
 		
 		System.out.print(str);
-		System.out.println("¶ó°í ´äº¯ÇÏ¿´Áö.");
+		System.out.println("ë¼ê³  ë‹µë³€í•˜ì˜€ì§€.");
 		cnt--;
 	}
 	

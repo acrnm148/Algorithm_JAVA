@@ -4,32 +4,32 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-// ÀÔ·ÂÀ» ¹ŞÀ¸¸é¼­ Ã³¸®ÇÒ ¼ö ÀÖ´Â ¹®Á¦´Â ¹İµå½Ã ±×·¸°Ô Ã³¸® ( ÀÔ·ÂÀ» À§ÇÑ ÀÚ·á±¸Á¶¸¦ ¸¸µé ÇÊ¿ä X )
+// ì…ë ¥ì„ ë°›ìœ¼ë©´ì„œ ì²˜ë¦¬í•  ìˆ˜ ìˆëŠ” ë¬¸ì œëŠ” ë°˜ë“œì‹œ ê·¸ë ‡ê²Œ ì²˜ë¦¬ ( ì…ë ¥ì„ ìœ„í•œ ìë£Œêµ¬ì¡°ë¥¼ ë§Œë“¤ í•„ìš” X )
 // switches : int -> boolean
-// 0, 1 °ª ¹Ù²ãÁÖ´Â ÄÚµå¸¦ ÁÙÀÌ´Âµ¥ ÃÊÁ¡
-public class BOJ_1244½ºÀ§Ä¡ÄÑ°í²ô±â2 {
+// 0, 1 ê°’ ë°”ê¿”ì£¼ëŠ” ì½”ë“œë¥¼ ì¤„ì´ëŠ”ë° ì´ˆì 
+public class BOJ_1244ìŠ¤ìœ„ì¹˜ì¼œê³ ë„ê¸°2 {
 
 	
 	static int N, COUNT;
-	static boolean[] switches;  // ½ºÀ§Ä¡¹è¿­
-	static int gender, num; // ³²¿©, ºÎ¿©¹ŞÀº ¼ıÀÚ <= local ¼±¾ğÇØµµ ¹«¹æ
+	static boolean[] switches;  // ìŠ¤ìœ„ì¹˜ë°°ì—´
+	static int gender, num; // ë‚¨ì—¬, ë¶€ì—¬ë°›ì€ ìˆ«ì <= local ì„ ì–¸í•´ë„ ë¬´ë°©
 	public static void main(String[] args) throws Exception{
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		N = Integer.parseInt(br.readLine());
-		switches = new boolean[N + 1]; // 0 dummy, ¹®Á¦ÀÇ ¹øÈ£°¡ 1ºÎÅÍ ½ÃÀÛ
+		switches = new boolean[N + 1]; // 0 dummy, ë¬¸ì œì˜ ë²ˆí˜¸ê°€ 1ë¶€í„° ì‹œì‘
 		
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		for (int i = 1; i <= N; i++) {
 			if (switches[i] = st.nextToken().equals("1"))
-				switches[i] = true; //else 0ÀÏ ¶§´Â ÇÊ¿ä ¾ø´Ù. booleanÀÇ µğÆúÆ®´Â falseÀÌ±â ¶§¹®
+				switches[i] = true; //else 0ì¼ ë•ŒëŠ” í•„ìš” ì—†ë‹¤. booleanì˜ ë””í´íŠ¸ëŠ” falseì´ê¸° ë•Œë¬¸
 		}
 		
 		COUNT = Integer.parseInt(br.readLine());
 		for (int i = 0; i < COUNT; i++) {
 			st = new StringTokenizer(br.readLine());
-			gender = Integer.parseInt(st.nextToken()); //ÇöÀç ¼ºº°
-			num = Integer.parseInt(st.nextToken());	   //ÇöÀç ¹ŞÀº ¹øÈ£
+			gender = Integer.parseInt(st.nextToken()); //í˜„ì¬ ì„±ë³„
+			num = Integer.parseInt(st.nextToken());	   //í˜„ì¬ ë°›ì€ ë²ˆí˜¸
 			
 			if (gender == 1) {
 				male();
@@ -38,9 +38,9 @@ public class BOJ_1244½ºÀ§Ä¡ÄÑ°í²ô±â2 {
 			}
 		}
 		
-		//°á°úÃâ·Â
+		//ê²°ê³¼ì¶œë ¥
 		for (int i = 1; i <= N; i++) {
-			System.out.print(switches[i]? 1 : 0); //booleanÅ¸ÀÔ Ãâ·Â ±×´ë·Î ÇÏ¸é true, flase·Î ³ª¿È
+			System.out.print(switches[i]? 1 : 0); //booleaníƒ€ì… ì¶œë ¥ ê·¸ëŒ€ë¡œ í•˜ë©´ true, flaseë¡œ ë‚˜ì˜´
 			if (i != N) {
 				if (i % 20 == 0) {
 					System.out.println();
@@ -56,7 +56,7 @@ public class BOJ_1244½ºÀ§Ä¡ÄÑ°í²ô±â2 {
 
 	static void male() {
 		for (int i = num; i <= N; i +=num) { 
-			switches[i] = !switches[i]; //»ïÇ×¿¬»êÀÚ µûÁú ÇÊ¿ä¾øÀÌ ÀÚ±âÀÚ½Å ¹İ´ë¸¦ ³Ö¾îÁÖ¸é µÈ´Ù
+			switches[i] = !switches[i]; //ì‚¼í•­ì—°ì‚°ì ë”°ì§ˆ í•„ìš”ì—†ì´ ìê¸°ìì‹  ë°˜ëŒ€ë¥¼ ë„£ì–´ì£¼ë©´ ëœë‹¤
 		}
 	}
 	
@@ -64,15 +64,15 @@ public class BOJ_1244½ºÀ§Ä¡ÄÑ°í²ô±â2 {
 		switches[num] = !switches[num];
 		int left = num - 1;
 		int right = num + 1;
-		while (left >= 1 && right <= N) { //°°À¸¸é
+		while (left >= 1 && right <= N) { //ê°™ìœ¼ë©´
 			if (switches[left] == switches[right]) {
 				switches[left] = !switches[left];
 				switches[right] = switches[left];
 				
-				//ÀÌ·¸°Ôµµ ÇÑ´Ù
+				//ì´ë ‡ê²Œë„ í•œë‹¤
 				//switches[right] = switches[left] = !switches[left];
 				
-			} else { //´Ù¸£¸é
+			} else { //ë‹¤ë¥´ë©´
 				break;
 			}
 			left--;

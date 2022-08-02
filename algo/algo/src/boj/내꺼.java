@@ -10,24 +10,24 @@ public class Main {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		//½ºÀ§Ä¡ °³¼ö ÀÔ·Â
+		//ìŠ¤ìœ„ì¹˜ ê°œìˆ˜ ì…ë ¥
 		cnt = Integer.parseInt(br.readLine());
-		//½ºÀ§Ä¡ »óÅÂ ÀÔ·Â
+		//ìŠ¤ìœ„ì¹˜ ìƒíƒœ ì…ë ¥
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 		for (int i = 1; i <= cnt; i++) {
 			light[i] = Integer.parseInt(st.nextToken());
 		}
 		
-		//ÇĞ»ı ¼ö ÀÔ·Â
+		//í•™ìƒ ìˆ˜ ì…ë ¥
 		stuCnt = Integer.parseInt(br.readLine());
-		//¼ºº°, ¹øÈ£ ÀÔ·Â
+		//ì„±ë³„, ë²ˆí˜¸ ì…ë ¥
 		for (int i = 0; i < stuCnt; i++) {
 			StringTokenizer st2 = new StringTokenizer(br.readLine(), " ");
 			sex = Integer.parseInt(st2.nextToken());
 			num = Integer.parseInt(st2.nextToken());
 			
-			//½ºÀ§Ä¡ »óÅÂ º¯°æ
-			//³²ÀÚ
+			//ìŠ¤ìœ„ì¹˜ ìƒíƒœ ë³€ê²½
+			//ë‚¨ì
 			if (sex == 1) {
 				for (int n = num; n <= cnt; n+=num) {
 					if (light[n] == 0) light[n] = 1;
@@ -56,7 +56,7 @@ public class Main {
 		}
 		
 		
-		//½ºÀ§Ä¡ »óÅÂ Ãâ·Â
+		//ìŠ¤ìœ„ì¹˜ ìƒíƒœ ì¶œë ¥
 		for (int i = 1; i <= cnt; i++) {
 			System.out.print(light[i]+" ");
 			if (i % 20 == 0) System.out.println();

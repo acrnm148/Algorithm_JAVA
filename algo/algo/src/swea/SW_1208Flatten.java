@@ -16,18 +16,18 @@ public class SW_1208Flatten {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		for (int T = 1; T <= 10; T++) {
 
-			dump = Integer.parseInt(br.readLine()); //dump ¼ö
-			arr = new int[100]; //¹è¿­
-			//ÀÔ·ÂºÎ
+			dump = Integer.parseInt(br.readLine()); //dump ìˆ˜
+			arr = new int[100]; //ë°°ì—´
+			//ìž…ë ¥ë¶€
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			for (int i = 0; i < 100; i++) {
 				arr[i] = Integer.parseInt(st.nextToken());
 			}
 			
-			//Á¤·ÄµÊ
+			//ì •ë ¬ë¨
 			sorted = Arrays.copyOf(arr, arr.length);
 			Arrays.sort(sorted);
-			//Àç±Í
+			//ìž¬ê·€
 			recursive(dump);
 			
 //			System.out.println("#"+ T +" "+ans);
@@ -43,18 +43,18 @@ public class SW_1208Flatten {
 		Arrays.sort(sorted);
 		max_cnt = 99;
 		min_cnt = 0;
-		// 1. ±âÀúÁ¶°Ç
+		// 1. ê¸°ì €ì¡°ê±´
 		if (dump == 0 || (sorted[max_cnt] == sorted[min_cnt]))
 			return;
 
-		// 2. ÇÏ°í½ÍÀºÀÏ
+		// 2. í•˜ê³ ì‹¶ì€ì¼
 		sorted[max_cnt]-=1;
 		sorted[min_cnt]+=1;
 //		tmp = sorted[max_cnt] - sorted[min_cnt];
 //		if (tmp > ans)
 //			ans = tmp;
 
-		// 3. Àç±Í
+		// 3. ìž¬ê·€
 		recursive(dump-1);
 	}
 }

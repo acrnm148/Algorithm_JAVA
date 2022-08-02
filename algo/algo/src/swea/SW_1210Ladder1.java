@@ -9,11 +9,11 @@ import java.util.StringTokenizer;
 public class SW_1210Ladder1 {
 
 	static int ansX = 0;
-	static int[] dir_x = {-1,0, 1}; //ÁÂ, »ó, ¿ì 
-	static int[] dir_y = {0,-1, 0}; //ÁÂ, »ó, ¿ì
+	static int[] dir_x = {-1,0, 1}; //ì¢Œ, ìƒ, ìš° 
+	static int[] dir_y = {0,-1, 0}; //ì¢Œ, ìƒ, ìš°
 	static int[][] arr = new int[100][100];
 	static int startX, startY; 
-	//¹Ù´Ú¿¡ µµÂøÇÏ¸é ¸ØÃá´Ù
+	//ë°”ë‹¥ì— ë„ì°©í•˜ë©´ ë©ˆì¶˜ë‹¤
 	public static void main(String[] args) throws Exception{
 		//System.setIn(new FileInputStream("input.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -22,7 +22,7 @@ public class SW_1210Ladder1 {
 			int num = Integer.parseInt(br.readLine());
 			StringTokenizer st;
 
-			//ÀÔ·ÂºÎ
+			//ì…ë ¥ë¶€
 //			arr = new int[100][100];
 //			for (int i = 0; i < 100; i++) {
 //				st = new StringTokenizer(br.readLine());
@@ -44,7 +44,7 @@ public class SW_1210Ladder1 {
 				}
 			}
 			
-			//Å½»ö
+			//íƒìƒ‰
 			//find(99,start);
 			//find(9,start);
 			while (true) {
@@ -67,14 +67,14 @@ public class SW_1210Ladder1 {
 	
 	static void find(int startY, int startX) {
 		
-		//1. ±âÀúÁ¶°Ç
+		//1. ê¸°ì €ì¡°ê±´
 //		if (startY == 0) {
 //			ansX = startX;
 //			System.out.println(ansX);
 //			return;
 //		}
 		
-		//2. Àç±Í
+		//2. ì¬ê·€
 		for (int i = 0; i < 3; i++) {
 			int nextY = startY + dir_y[i];
 			int nextX = startX + dir_x[i];

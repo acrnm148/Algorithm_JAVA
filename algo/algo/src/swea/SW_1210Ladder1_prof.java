@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 
 public class SW_1210Ladder1_prof {
 	
-	//¿Ş - ¿À - À§
+	//ì™¼ - ì˜¤ - ìœ„
 	static int[] dy = {0,0,-1};
 	static int[] dx = {-1,1,0};
 	static int[][] ladder = new int[100][100];
@@ -18,31 +18,31 @@ public class SW_1210Ladder1_prof {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		for (int t = 1; t <= 10; t++) {
-			//ladder ÃÊ±âÈ­ ÇÊ¿äX => ¸Å¹ø Å×ÄÉ Ã³¸® ½Ã ÀÔ·ÂÀ¸·Î ´Ù½Ã ÃÊ±âÈ­ ÀÚµ¿À¸·Î
-			//Ã¹¹øÂ° Å×ÄÉ¹øÈ£´Â ¹ö¸°´Ù. ÆÄ½ÌÇÒ ÇÊ¿äµµ ¾øÀ½
+			//ladder ì´ˆê¸°í™” í•„ìš”X => ë§¤ë²ˆ í…Œì¼€ ì²˜ë¦¬ ì‹œ ì…ë ¥ìœ¼ë¡œ ë‹¤ì‹œ ì´ˆê¸°í™” ìë™ìœ¼ë¡œ
+			//ì²«ë²ˆì§¸ í…Œì¼€ë²ˆí˜¸ëŠ” ë²„ë¦°ë‹¤. íŒŒì‹±í•  í•„ìš”ë„ ì—†ìŒ
 			br.readLine();
 			
 			for (int i = 0; i < 100; i++) {
 				StringTokenizer st = new StringTokenizer(br.readLine());
 				for (int j = 0; j < 100; j++) {
 					ladder[i][j] = Integer.parseInt(st.nextToken());
-//					ladder[i][j] = st.nextToken().charAt(0) - '0'; //¼Óµµ ºñ½Á
+//					ladder[i][j] = st.nextToken().charAt(0) - '0'; //ì†ë„ ë¹„ìŠ·
 		
 				}
 			}
 			
-			//sy, sx¸¦ µû·Î ladder¿¡¼­ Ã£´Â ¹æ¹ı
+			//sy, sxë¥¼ ë”°ë¡œ ladderì—ì„œ ì°¾ëŠ” ë°©ë²•
 			sy = 99;
 			for (int i = 0; i < 100; i++) {
 				if (ladder[99][i] == 2) sx = i;
 			}
 			
-			//Å½»ö ½ÃÀÛ - ½ÃÀÛ¹æÇâÀº À§·Î°¡¸é µÊ.
-			//½ÃÀÛ¹æÇâÀº À§
+			//íƒìƒ‰ ì‹œì‘ - ì‹œì‘ë°©í–¥ì€ ìœ„ë¡œê°€ë©´ ë¨.
+			//ì‹œì‘ë°©í–¥ì€ ìœ„
 			int dir = 2;
 			
 			while (true) {
-				//À§·Î Å½»öÇÒ °æ¿ì, ¿Ş,¿À ¿ì¼± - ¿Ş,¿À ÀÌµ¿ÇÒ ¼ö ¾øÀ¸¸é °è¼Ó À§
+				//ìœ„ë¡œ íƒìƒ‰í•  ê²½ìš°, ì™¼,ì˜¤ ìš°ì„  - ì™¼,ì˜¤ ì´ë™í•  ìˆ˜ ì—†ìœ¼ë©´ ê³„ì† ìœ„
 				if (dir == 2) {
 					for (int d = 0; d < 3; d++) {
 						int ny = sy + dy[d];
@@ -51,17 +51,17 @@ public class SW_1210Ladder1_prof {
 						if (ny >= 0 && nx >= 0 && nx < 100 && ladder[ny][nx] == 1) {
 							sy = ny;
 							sx = nx;
-							dir = d; //¹æÇâÀüÈ¯(±×´ë·ÎÀÏ¼öµµ) °»½ÅÇØÁà¾ßÇÔ
-							break; //´õ for¹® ¹İº¹ÇÒ ÇÊ¿ä X
+							dir = d; //ë°©í–¥ì „í™˜(ê·¸ëŒ€ë¡œì¼ìˆ˜ë„) ê°±ì‹ í•´ì¤˜ì•¼í•¨
+							break; //ë” forë¬¸ ë°˜ë³µí•  í•„ìš” X
 						} 
 					}
 				}
-				//¿ŞÂÊ ¶Ç´Â ¿À¸¥ÂÊÀ¸·Î Å½»öÇÒ °æ¿ì, À§ ¿ì¼±, À§·Î ÀÌµ¿ÇÒ ¼ö ¾øÀ¸¸é °è™Î ¿Ş, ¿À ¹æÇâÀ¸·Î ÀÌµ¿
+				//ì™¼ìª½ ë˜ëŠ” ì˜¤ë¥¸ìª½ìœ¼ë¡œ íƒìƒ‰í•  ê²½ìš°, ìœ„ ìš°ì„ , ìœ„ë¡œ ì´ë™í•  ìˆ˜ ì—†ìœ¼ë©´ ê³„ ì™¼, ì˜¤ ë°©í–¥ìœ¼ë¡œ ì´ë™
 				else if (dir == 0 || dir == 1) {
-					// À§ ¿ì¼±
+					// ìœ„ ìš°ì„ 
 					int ny = sy + dy[2];
 					int nx = sx + dx[2];
-					if (ny >= 0 && ladder[ny][nx] == 1) { // À§·Î °¥ ¼ö ÀÖÀ¸¸é
+					if (ny >= 0 && ladder[ny][nx] == 1) { // ìœ„ë¡œ ê°ˆ ìˆ˜ ìˆìœ¼ë©´
 						sy = ny;
 						sx = nx;
 						dir = 2;

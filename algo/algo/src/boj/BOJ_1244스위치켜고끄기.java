@@ -4,18 +4,18 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-// ÀÔ·ÂÀ» ¹ŞÀ¸¸é¼­ Ã³¸®ÇÒ ¼ö ÀÖ´Â ¹®Á¦´Â ¹İµå½Ã ±×·¸°Ô Ã³¸® ( ÀÔ·ÂÀ» À§ÇÑ ÀÚ·á±¸Á¶¸¦ ¸¸µé ÇÊ¿ä X )
-public class BOJ_1244½ºÀ§Ä¡ÄÑ°í²ô±â {
+// ì…ë ¥ì„ ë°›ìœ¼ë©´ì„œ ì²˜ë¦¬í•  ìˆ˜ ìˆëŠ” ë¬¸ì œëŠ” ë°˜ë“œì‹œ ê·¸ë ‡ê²Œ ì²˜ë¦¬ ( ì…ë ¥ì„ ìœ„í•œ ìë£Œêµ¬ì¡°ë¥¼ ë§Œë“¤ í•„ìš” X )
+public class BOJ_1244ìŠ¤ìœ„ì¹˜ì¼œê³ ë„ê¸° {
 
 	
 	static int N, COUNT;
-	static int[] switches;  // ½ºÀ§Ä¡¹è¿­
-	static int gender, num; // ³²¿©, ºÎ¿©¹ŞÀº ¼ıÀÚ <= local ¼±¾ğÇØµµ ¹«¹æ
+	static int[] switches;  // ìŠ¤ìœ„ì¹˜ë°°ì—´
+	static int gender, num; // ë‚¨ì—¬, ë¶€ì—¬ë°›ì€ ìˆ«ì <= local ì„ ì–¸í•´ë„ ë¬´ë°©
 	public static void main(String[] args) throws Exception{
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		N = Integer.parseInt(br.readLine());
-		switches = new int[N + 1]; // 0 dummy, ¹®Á¦ÀÇ ¹øÈ£°¡ 1ºÎÅÍ ½ÃÀÛ
+		switches = new int[N + 1]; // 0 dummy, ë¬¸ì œì˜ ë²ˆí˜¸ê°€ 1ë¶€í„° ì‹œì‘
 		
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		for (int i = 1; i <= N; i++) {
@@ -25,8 +25,8 @@ public class BOJ_1244½ºÀ§Ä¡ÄÑ°í²ô±â {
 		COUNT = Integer.parseInt(br.readLine());
 		for (int i = 0; i < COUNT; i++) {
 			st = new StringTokenizer(br.readLine());
-			gender = Integer.parseInt(st.nextToken()); //ÇöÀç ¼ºº°
-			num = Integer.parseInt(st.nextToken());	   //ÇöÀç ¹ŞÀº ¹øÈ£
+			gender = Integer.parseInt(st.nextToken()); //í˜„ì¬ ì„±ë³„
+			num = Integer.parseInt(st.nextToken());	   //í˜„ì¬ ë°›ì€ ë²ˆí˜¸
 			
 			if (gender == 1) {
 				male();
@@ -35,7 +35,7 @@ public class BOJ_1244½ºÀ§Ä¡ÄÑ°í²ô±â {
 			}
 		}
 		
-		//°á°úÃâ·Â
+		//ê²°ê³¼ì¶œë ¥
 		for (int i = 1; i <= N; i++) {
 			System.out.print(switches[i]);
 			if (i != N) {
@@ -50,35 +50,35 @@ public class BOJ_1244½ºÀ§Ä¡ÄÑ°í²ô±â {
 		
 	}
 	
-	// ÀÚ±â°¡ ¹ŞÀº ¹øÈ£ÀÇ ¹è¼ö¸¦ ¹Ù²ã¾ßÇÑ´Ù.
+	// ìê¸°ê°€ ë°›ì€ ë²ˆí˜¸ì˜ ë°°ìˆ˜ë¥¼ ë°”ê¿”ì•¼í•œë‹¤.
 	// 1 2 3 4 5 6 7 8 
 	// num == 3
 	static void male() {
 //		for (int i = 1; i <= N; i++) {
-//			if (i % num == 0) { //½ºÀ§Ä¡ ¹øÈ£°¡ NÀÇ ¹è¼öÀÌ¸é
-//				switches[i] = switches[i] == 0? 1 : 0; //»ïÇ×¿¬»êÀÚ
+//			if (i % num == 0) { //ìŠ¤ìœ„ì¹˜ ë²ˆí˜¸ê°€ Nì˜ ë°°ìˆ˜ì´ë©´
+//				switches[i] = switches[i] == 0? 1 : 0; //ì‚¼í•­ì—°ì‚°ì
 //			}
 //		}
 		
 		// new
-		for (int i = num; i <= N; i +=num) { // Ã¹¹øÂ° ÀÌµæ - ¹è¼ö ÀÎµ¦½º¸¸ Ã£¾Æ °£´Ù
-			// if ºñ±³ X µÎ ¹øÂ° ÀÌµæ
-			switches[i] = switches[i] == 0? 1 : 0; //»ïÇ×¿¬»êÀÚ
+		for (int i = num; i <= N; i +=num) { // ì²«ë²ˆì§¸ ì´ë“ - ë°°ìˆ˜ ì¸ë±ìŠ¤ë§Œ ì°¾ì•„ ê°„ë‹¤
+			// if ë¹„êµ X ë‘ ë²ˆì§¸ ì´ë“
+			switches[i] = switches[i] == 0? 1 : 0; //ì‚¼í•­ì—°ì‚°ì
 		}
 	}
 	
 	static void female() {
-		//ÀÚ½ÅÀÌ ¹ŞÀº ¹øÈ£ÀÇ ½ºÀ§Ä¡¸¦ ¿ì¼± º¯°æ
-		//ÀÚ½Å ÁÂ¿ì ´ëÄªÀÎ °ÍÀ» Ã£¾Æ º¯°æ
+		//ìì‹ ì´ ë°›ì€ ë²ˆí˜¸ì˜ ìŠ¤ìœ„ì¹˜ë¥¼ ìš°ì„  ë³€ê²½
+		//ìì‹  ì¢Œìš° ëŒ€ì¹­ì¸ ê²ƒì„ ì°¾ì•„ ë³€ê²½
 		switches[num] = switches[num] == 0? 1:0;
 		
 		//before
 //		int cnt = 1;
-//		while (num - cnt >= 1 && num + cnt <= N) { //°°À¸¸é
+//		while (num - cnt >= 1 && num + cnt <= N) { //ê°™ìœ¼ë©´
 //			if (switches[num-cnt] == switches[num+cnt]) {
 //				switches[num-cnt] = switches[num-cnt] == 0? 1:0;
 //				switches[num+cnt] = switches[num+cnt] == 0? 1:0;
-//			} else { //´Ù¸£¸é
+//			} else { //ë‹¤ë¥´ë©´
 //				break;
 //			}
 //			cnt++;
@@ -86,15 +86,15 @@ public class BOJ_1244½ºÀ§Ä¡ÄÑ°í²ô±â {
 		
 		int left = num - 1;
 		int right = num + 1;
-		while (left >= 1 && right <= N) { //°°À¸¸é
+		while (left >= 1 && right <= N) { //ê°™ìœ¼ë©´
 			if (switches[left] == switches[right]) {
 				switches[left] = switches[left] == 0? 1:0;
 				switches[right] = switches[left];
 				
-				//ÀÌ·¸°Ôµµ ÇÑ´Ù
+				//ì´ë ‡ê²Œë„ í•œë‹¤
 				//switches[right] = switches[left] = switches[left] == 0? 1:0;
 				
-			} else { //´Ù¸£¸é
+			} else { //ë‹¤ë¥´ë©´
 				break;
 			}
 			left--;
