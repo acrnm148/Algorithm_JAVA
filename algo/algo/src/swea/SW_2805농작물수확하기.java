@@ -22,35 +22,19 @@ public class SW_2805농작물수확하기 {
 				}
 			}
 			
-			for (int y = 0; y < N; y++) {
-				for (int x = 0; x < N; x++) {
-					System.out.print(arr[y][x]);
-					
-				}
-				System.out.println();
-			}
 			
 			//탐색
-			int start = 0;
-			int end = 0;
 			int sum = 0;
 			int cnt = 0;
-			int midX = N/2;
+			int idx = 0;
+			int start = N/2;
+			int end = N/2;
 			for (int y = 0; y < N; y++) {
-				for (int x = 0; x < N; x++) {
-					while (y < N/2) {
-						start = midX - cnt;
-						end = midX + cnt;
-						cnt++;
-					}
-					cnt--;
-					while (y >= N/2 && y < N && cnt >= 0) {
-						start = midX - cnt;
-						end = midX + cnt;
-						cnt--;
-					}
+				if (y < )
+				for (int x = start; x < end; x++) {
+					sum += arr[y][x];
 				}
-				
+				start--;
 			}
 			System.out.println("#" + tc + " " + cnt);
 		}
