@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
 public class BOJ_2407조합 {
 
 	static int N, M, totalCnt;
-
+	static boolean[] isSelected;
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
@@ -20,7 +20,8 @@ public class BOJ_2407조합 {
 		M = Integer.parseInt(st.nextToken());
 
 		long start = System.nanoTime(); //시간 add
-		
+
+		isSelected = new boolean[M];
 		//1. 조합
 		totalCnt = 0;
 		comb(0, 0); // cnt == 0, start==0
@@ -49,6 +50,7 @@ public class BOJ_2407조합 {
 			comb(cnt + 1, i + 1);
 		}
 	}
+	
 	
 	//2. 조합+dp
 	static BigInteger[][] dp = new BigInteger[101][101];
