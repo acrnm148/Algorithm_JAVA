@@ -42,11 +42,6 @@ public class SW_5215햄버거다이어트_조합 {
 		}
 	}
 	
-	//조합 - N개 중에 N개 뽑을 때
-//	static void comb(int cnt, int start, int total_cal, int total_score) {
-//		//1. 기저조건
-//		//if (cnt == N)
-//	}
 	
 	//순열 + 조합
 	static void perm(int cnt, int start, int total_cal, int total_score) {
