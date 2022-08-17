@@ -7,6 +7,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
+/*
+ * sort할 때 array가 레퍼런스 타입이면 클래스에 implements Comparable<클래스> 해줘야함
+ * */
 public class JO_1828냉장고 {
 
 	static int N;
@@ -21,7 +24,7 @@ public class JO_1828냉장고 {
 			ref[i] = new Node(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
 			
 		}
-		Arrays.sort(ref);
+		Arrays.sort(ref, (o1, o2) -> o1.end - o2.end);
 		result.add(ref[0]);
 		
 		for (int idx = 1; idx < ref.length; idx++) {
