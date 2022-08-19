@@ -1,4 +1,4 @@
-package boj2.브루트포스_백트래킹;
+package boj문제집.브루트포스_백트래킹;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

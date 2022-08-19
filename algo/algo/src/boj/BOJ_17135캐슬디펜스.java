@@ -21,40 +21,38 @@ public class BOJ_17135캐슬디펜스 {
 		M = Integer.parseInt(st.nextToken());
 		limit = Integer.parseInt(st.nextToken());
 		
+		src = new int[M];
+		tgt = new int[3];
 		map = new int[N+1][M];
-		for (int i = 0; i < N; i++) { //성 줄에는 아직 아무것도 없음
-			if (i < N) {
-				st = new StringTokenizer(br.readLine());
-				for (int j = 0; j < M; j++) {
-					map[i][j] = Integer.parseInt(st.nextToken());
-				}
-			}
+		for (int i = 1; i <= N; i++) { //성 줄에는 아직 아무것도 없음
+			st = new StringTokenizer(br.readLine());
+			for (int j = 0; j < M; j++) 
+				map[i][j] = Integer.parseInt(st.nextToken());
 		}
 		
 		//성 칸 M칸 중 k 칸 선택
-		comb(0, 0);
+		comb(0, 0); //적 자리 설정 완료
 		protect(  );
 	}
 	
-	static void comb(int srcIdx, int tgtIdx) {
-		//1. 기저조건 - tgt이 다 찼을 때
-		if (tgtIdx == tgt.length) {
+	static void comb(int tgtIdx, int srcIdx) {
+		if (tgtIdx == 3) {
+			for (int i =0; i < tgtIdx; i++) System.out.print(tgt[i]);
+			System.out.println();
 			return;
 		}
-		//2. 기저조건 - src를 다 봤을 때
-		if (srcIdx == src.length) return;
+		if (srcIdx == M) return;
 		
-		//3. tgt에 src 넣어줌
 		tgt[tgtIdx] = srcIdx;
 		
-		//4. 선택이냐 선택아니냐
-		comb(srcIdx + 1, tgtIdx + 1); //선택
-		comb(srcIdx + 1, tgtIdx); // 선택아니냐
+		comb(tgtIdx+1, srcIdx + 1);
+		comb(tgtIdx, srcIdx + 1);
+		
 	}
 	
 	static void protect() {
 		//1. 궁수 위치 set 해줌, 궁수:2
-		for (int i = 0; i < tgt.length; i++) {
+		for (int i = 0; i < 3; i++) {
 			int idx = tgt[i];
 			map[N][idx] = 2;
 		}

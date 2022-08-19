@@ -1,10 +1,10 @@
-package boj2.브루트포스_백트래킹;
+package boj문제집.브루트포스_백트래킹;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class BOJ_15649_N과M1_다시 {
+public class BOJ_15649_N과M1 {
 
 	static int[] tgt;
 	static boolean[] isSelected;
@@ -14,31 +14,30 @@ public class BOJ_15649_N과M1_다시 {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		N = Integer.parseInt(st.nextToken());
 		M = Integer.parseInt(st.nextToken());
-		
-		isSelected = new boolean[N+1]; //자연수이므로
+		isSelected = new boolean[N+1];
 		tgt = new int[M];
-		
-		long start = System.nanoTime();
 		perm(0);
-		long end = System.nanoTime();
-		System.out.println((end-start)*0.000_001+"ms");
+		
 	}
 	
 	static void perm(int tgtIdx) {
-		if (tgtIdx == M) { //순열 하나하나 완성 시
-			for (int i = 0; i < M; i++) { //이거 M이 아니라 tgtIdx하면 시간초과 나옴 //M: 5.3468ms/tgtIdx:6.7759ms
+		if (tgtIdx == M) {
+			int idx = 0;
+			for (int i = 0; i < M; i++) {
 				System.out.print(tgt[i] + " ");
 			}
 			System.out.println();
 			return;
 		}
-		for (int i = 1; i <= N; i++) { //넣는 값이 자연수이고, 인덱스를 자연수로 쓰기 때문
-			
-			if(isSelected[i]) continue;
+		
+		
+		//줄세우기
+		for (int i = 1; i <= N; i++) {
+			if (isSelected[i]) continue; //이미 쓰고있는 수면 넘기고
 			tgt[tgtIdx] = i;
-			isSelected[i] = true;
+			isSelected[i] = true; //사용중
 			
-			perm(tgtIdx + 1); //순열 자리 채우러
+			perm(tgtIdx+1);
 			isSelected[i] = false;
 		}
 		
